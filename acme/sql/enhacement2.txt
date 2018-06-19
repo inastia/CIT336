@@ -1,0 +1,29 @@
+1. Insert new client into clients table.
+
+INSERT INTO clients
+(clientFirstname, clientLastname, clientEmail, clientPassword, comments)
+VALUES
+('Tony', 'Stark', 'tony@starkent.com', 'Iam1ronM@n', "I am the real Ironman")
+
+2. Modify the Tony Stark record to change the clientLevel to 3.
+
+UPDATE clients 
+SET clientLevel = 3;
+
+3. Modify the "Nylon Rope" record to read "Climbing Rope" using a single query
+
+UPDATE inventory
+SET invName = replace(invName, 'Nylon', 'Climbing')
+WHERE invName LIKE '%Rope';
+
+4. select the invName field and the categoryName field
+
+SELECT inventory.invName, categories.categoryName
+FROM inventory
+INNER JOIN categories ON categories.categoryID = inventory.categoryID
+WHERE categoryName LIKE 'Misc';
+
+6. Delete Koenigsegg CCX car 
+
+DELETE FROM inventory WHERE invName = 'Koenigsegg CCX car';
+

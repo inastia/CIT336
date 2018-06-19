@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css?family=Acme');
+@import url('https://fonts.googleapis.com/css?family=Quattrocento');
+
+/* BODY/BACKGROUND */
+body {
+ font-family: 'Quattrocento', serif;
+ max-width: 1024px;
+ margin: 0 auto;
+ background-image: url("/acme/images/site/background.jpg");
+ background-repeat: no-repeat;
+ background-size: cover;
+ align-content: center;
+}
+main {
+ margin-left: 20px;
+}
+.subcontent {
+ padding: 20px;
+}
+div.content {
+ background-color: white;
+ align-content: center;
+}
+h1, h2 {
+ font-family: 'Acme', sans-serif;
+}
+
+/* HEADER */
+
+img#logo{
+ height: 10vw;
+ width: auto;
+}
+img#red{
+ height: 4vw;
+ width: auto;
+ margin-left: 5px;
+ margin-right: 5px;
+}
+.header p {
+ margin: 5px;
+}
+.header p a {
+ text-decoration: none;
+}
+.header p a:hover {
+ color: red;
+ font-weight: bold;
+ text-shadow: 1px 1px #D3D3D3;
+}
+div.header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 15px;
+}
+div.red{
+ display: flex;
+ align-items: center;
+ padding: 20px;
+}
+
+/* NAVIGATION */
+
+nav ul {
+ display: flex;
+ background-color: red;
+ text-align: center;
+ list-style: none;
+ font-family: 'Acme', sans-serif;
+ padding: 0;
+ margin: 0;
+}
+nav ul li {
+ font-size: 22px;
+ line-height: 60px;
+ height: 60px;
+ margin: 3px;
+}
+nav ul li a {
+ display: block;
+ text-decoration: none;
+ color: white;
+}
+nav ul li a:hover {
+ background-color: white;
+ color: red;
+}
+
+
+/* FOOTER */
+
+footer {
+ text-align: center;
+}
+footer p {
+ margin: 10px;
+}
+hr {
+ height: 5px;
+ background-color: black;
+ border: none;
+}
+
+/* WELCOME SECTION */
+
+section.welcome {
+ display: flex;
+ background:  url("/acme/images/site/rocketfeature.jpg") no-repeat center;
+ background-size: cover;
+ justify-content: flex-end;
+}
+section.welcome ul li {
+ list-style: none;
+ color: red;
+ margin: 5px;
+}
+section.welcome ul li:first-child {
+ font-size: 26px;
+ font-weight: bolder;
+}
+section.welcome ul li h2 {
+ margin-bottom: 5px;
+}
+
+/* RECIPES SECTION */
+
+div.list {
+ display: grid;
+ grid-template-columns: auto auto;
+ grid-template-rows: auto;
+ grid-gap: 1rem;
+ align-self: center;
+}
+figure {
+ margin: 15px;
+ display: flex;
+ flex-direction: column;
+ text-align: center;
+}
+figure img {
+ width: 50%;
+ align-self: center;
+}
+
+
+/* REGISTRATION AND LOGIN PAGE */
+
+fieldset {
+ width: 50%;
+ padding: 20px;
+ margin: 20px 20px 0 20px;
+}
+
+label {
+ text-align: right;
+ padding-right: 10px;
+}
+
+.login-p, .input-help-text {
+ margin-left: 20px;
+}
+.login-p a {
+ font-size: 18px;
+ font-weight: bolder;
+}
+.login-p a:hover {
+ color: red;
+ font-weight: bold;
+ text-shadow: 1px 1px #D3D3D3;
+}
+legend {
+ font-family: 'Acme', sans-serif;
+ font-size: 24px;
+}
+
+/* PRODUCT MANAGEMENT PAGE */
+
+.welcomeMessage {
+ font-family: Quattrocento;
+ font-size: 22px;
+}
+.manageProducts a {
+ text-decoration: none;
+ color: black;
+ background-color: #f44336;
+ padding: 14px 25px;
+ text-align: center;
+ text-decoration: none;
+ display: block;
+ width: 350px;
+}
+.manageProducts a:hover {
+ transform: scale(1.05);
+ color: white;
+}
+
+/* ADD CATEGORY PAGE */
+
+.categoryName {
+ margin-bottom: 20px;
+}
+
+/* ADD PRODUCT PAGE */
+
+input {
+ height: 20px;
+ width: 200px;
+}
+div.input {
+ margin-bottom: 20px;
+ float: right;
+}
+textarea {
+ width: 200px;
+}
+select {
+ width: 200px;
+ height: 20px;
+}
+
+/* BUTTONS */
+#login, #register, #newProduct, #newCategory {
+ width: 210px;
+ font-size: 22px;
+ font-family: 'Acme', sans-serif;
+ color: white;
+ background-color: red;
+}
+.button {
+ float: right;
+}
+.button input {height: 40px;}
+
+/* MEDIUM AND LARGE SCREEN */
+
+@media screen and (min-width: 600px) {
+ 
+nav ul li {
+  width: 120px;
+	display: inline-block;
+	margin-right: -4px;
+}
+
+/* HEADER */
+img#logo {
+ height: 8vw;
+ width: auto;
+ margin: 5px;
+}
+img#red {
+ height: 2vw;
+ width: auto;
+}
+
+
+/* SECTIONS */
+
+h1 {
+ margin-bottom: 5px;
+}
+section.welcome {
+ padding: 60px;
+}
+ section.welcome ul {
+  margin-right: 150px;
+ }
+ div.one {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+ }
+ section.reviews {
+  width: 40%;
+ }
+ 
+ }
