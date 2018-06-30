@@ -102,6 +102,7 @@ switch ($action) {
  case 'mod':
   $invId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
   $productInfo = getProductInfo($invId);
+  
   if (count($productInfo) < 1) {
    $message = 'Sorry, no product information could be found.';
   }
@@ -179,12 +180,48 @@ switch ($action) {
    header('location: /acme/products/');
    exit;
   } else {
-   $message = "<p>Oops, something didn't work quite right. Product was not deleted. Try again.</p>";
+   $message = "<p>Something didn't work quite right. Product was not deleted. Try again.</p>";
    $_SESSION['message'] = $message;
    header('location: /acme/products/');
    exit;
   }
   break;
+  
+  
+  
+  
+ case 'category':
+ $type = filter_input(INPUT_GET, 'type', FILTER_SANITIZE_STRING);
+ $products = getProductsByCategory($type);
+ if(!count($products)){
+   $message = "<p>Sorry, no $type products could be found.</p>";
+ } else {
+   $productDisplay = buildProductsDisplay($products);
+ }  
+   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/category.php';
+ break;
+ 
+ 
+ 
+
+
+ case 'product-details':
+  $invId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+  $productInfo = getProductInfo($invId);
+  //$productThumbnails = getProductThumbnails($invId);
+  
+  if(count($productInfo) < 1){
+    $message = "<p>Sorry, the product info could not be found.</p>";
+  } else {
+    $productDisplay = buildProductInfoDisplay($productInfo);
+    //$thumbnailDisplay = buildThumbnailDisplay($productThumbnails);
+  }
+
+    include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/product-details.php';
+  
+  break;
+ 
+ 
 
 
 
@@ -192,9 +229,6 @@ switch ($action) {
   $products = getProductBasics();
   if (count($products) > 0) {
    $prodList = '<table>';
-   $prodList .= '<thead>';
-   $prodList .= '<tr><th>Product Name</th><td>&nbsp;</td><td>&nbsp;</td></tr>';
-   $prodList .= '</thead>';
    $prodList .= '<tbody>';
    foreach ($products as $product) {
     $prodList .= "<tr><td>$product[invName]</td>";
@@ -203,7 +237,7 @@ switch ($action) {
    }
    $prodList .= '</tbody></table>';
   } else {
-   $message = '<p class="notify">Sorry, no products were returned.</p>';
+   $message = '<p>Sorry, no products were returned.</p>';
   }
 
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/prod-mgmt.php';

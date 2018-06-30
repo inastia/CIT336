@@ -1,9 +1,10 @@
 <?php
+if (isset($_SESSION['loggedin'])) {
 $clientFirstname = $_SESSION['clientData']['clientFirstname'];
-
+}
 ?>
-
 <header>
+ 
  <div class="header">
   <a href="/acme/">
    <img id="logo" src="/acme/images/site/logo.gif" alt="The site logo">
@@ -19,8 +20,9 @@ $clientFirstname = $_SESSION['clientData']['clientFirstname'];
     echo "<img id='red' src='/acme/images/site/account.gif' alt='The red folder'><p><a href='/acme/accounts/index.php?action=login'>My Account</a></p>";
    }
    ?>
-   </div> <!-- div class red ends here -->
+  </div> <!-- div class red ends here -->
 
  </div>
+ 
 </header>
 

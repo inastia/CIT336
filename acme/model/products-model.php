@@ -95,3 +95,14 @@ function deleteProduct($invId){
   $stmt->closeCursor();
   return $rowsChanged;
 }
+//=============== gets products based on category ==================
+function getProductsByCategory($type){
+  $db = acmeConnect();
+  $sql = 'SELECT * FROM inventory WHERE categoryId IN (SELECT categoryId FROM categories WHERE categoryName = :categoryId)';
+  $stmt = $db->prepare($sql);
+  $stmt->bindValue(':categoryId', $type, PDO::PARAM_STR);
+  $stmt->execute();
+  $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $stmt->closeCursor();
+  return $products;
+} 

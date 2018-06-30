@@ -7,6 +7,7 @@
   <div class="content">
    <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/header.php'; ?>
    <?php echo $navList; ?>
+   
    <main>
     <div class="subcontent">
      <?php
@@ -50,7 +51,9 @@
 
      <p class="login-p">Don't have an account yet? <a href="/acme/accounts/index.php?action=register">Sign Up Here!</a></p>
     </div> <!-- div class sub content ends here -->
+    
    </main>
+   
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php'; ?>
   </div> <!-- div content ends here -->
  </body>

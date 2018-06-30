@@ -22,7 +22,7 @@ if (isset($_SESSION['message'])) {
    <main>
 
     <h1>Manage Products</h1>
-    <h2 class="welcomeMessage">Welcome to the product management page. Pick one of the following options.</h2>
+    <p>Welcome to the product management page. Pick one of the following options.</p>
 
     <?php
     if (isset($message)) {
@@ -35,6 +35,9 @@ if (isset($_SESSION['message'])) {
      <a href='/acme/products/index.php?action=catForm'>Add a new category</a>
     </section>
     
+    <hr />
+    
+    <p> Products available in your inventory..</p>
      <?php
      if (isset($message)) {
       echo $message;

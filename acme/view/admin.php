@@ -1,6 +1,6 @@
 <?php
 if (!$_SESSION['loggedin']) {
- header('Location: /acme/index.php');
+ header('Location: /acme/');
 }
 ?>
 <!DOCTYPE html>
@@ -12,9 +12,11 @@ if (!$_SESSION['loggedin']) {
   <div class="content">
    <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/header.php'; ?>
    <?php echo $navList; ?>
+   
+   
    <main>
     <h1>Welcome, <?php echo $_SESSION['clientData']['clientFirstname']; ?></h1>
-    
+    <?php if (isset($message)) {echo $message;} ?>
     <p>You are logged in. Here are your account details:</p>
     
     <ul class="">
@@ -23,7 +25,7 @@ if (!$_SESSION['loggedin']) {
       <li><strong>Email:</strong> <?php echo $_SESSION['clientData']['clientEmail']; ?></li>
     </ul>
     
-   
+   <a href="/acme/accounts/index.php?action=update">Update Account Information</a>
 
      <?php
      if ($_SESSION['clientData']['clientLevel'] > 1) {
@@ -36,7 +38,10 @@ if (!$_SESSION['loggedin']) {
    
 
    </main>
+   
+   
    <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php'; ?>
+   
   </div> <!-- div content ends here -->
  </body>
 </html>

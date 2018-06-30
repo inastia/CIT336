@@ -4,9 +4,12 @@
  <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/head.php'; ?>
 
  <body>
+  
   <div class="content">
+   
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/header.php'; ?>	
-  <nav><?php echo $navList; ?></nav>
+  <?php echo $navList; ?>
+   
   <main>
    <h1> Welcome to ACME!</h1>
    
